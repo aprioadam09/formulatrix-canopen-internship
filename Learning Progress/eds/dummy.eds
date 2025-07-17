@@ -1,0 +1,19 @@
+[DeviceInfo]
+VendorName=DummyVendor
+VendorNumber=1
+ProductName=LEDNode
+ProductNumber=1
+RevisionNumber=1
+
+[Device]
+VendorName=DummyVendor
+ProductName=LEDNode
+ProductNumber=1
+RevisionNumber=1
+
+[2000]
+ParameterName=LED Control
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0

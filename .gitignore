@@ -1,0 +1,15 @@
+# Hasil kompilasi C++
+*.o
+slave*
+*.exe
+build/
+
+# File-file Python cache
+__pycache__/
+*.pyc
+
+# Lingkungan virtual Python
+canopen-env/
+
+# File-file VSCode
+.vscode/

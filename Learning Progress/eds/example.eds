@@ -1,0 +1,183 @@
+[DeviceInfo]
+VendorName=YourCompany
+VendorNumber=1
+ProductName=DummyDevice
+ProductNumber=0
+RevisionNumber=1
+
+[File]
+Description=Dummy EDS file for CANopen training
+CreationDate=2025-07-03
+CreatedBy=Aprio Adam
+ModificationDate=2025-07-03
+
+[Device]
+DeviceName=DummyDevice
+VendorName=YourCompany
+ProductNumber=0
+RevisionNumber=1
+
+[MandatoryObjects]
+1000=1
+1001=1
+1018=4
+
+[1000]
+ParameterName=Device Type
+ObjectType=0x7
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000000
+
+[1001]
+ParameterName=Error Register
+ObjectType=0x7
+DataType=0x0005
+AccessType=ro
+DefaultValue=0
+
+[1018]
+ParameterName=Identity Object
+ObjectType=0x9
+SubNumber=4
+
+[1018sub0]
+ParameterName=Number of Entries
+DataType=0x0005
+AccessType=ro
+DefaultValue=3
+
+[1018sub1]
+ParameterName=Vendor ID
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x12345678
+
+[1018sub2]
+ParameterName=Product Code
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000001
+
+[1018sub3]
+ParameterName=Revision Number
+DataType=0x0007
+AccessType=ro
+DefaultValue=0x00000001
+
+[2000]
+ParameterName=LED Control
+ObjectType=0x9
+SubNumber=3
+
+[2000sub0]
+ParameterName=LED 1
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+
+[2000sub1]
+ParameterName=LED 2
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+
+[2000sub2]
+ParameterName=LED 3
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+
+[2001]
+ParameterName=Counter
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=0
+
+[2002]
+ParameterName=Temperature
+ObjectType=0x7
+DataType=0x0005
+AccessType=rw
+DefaultValue=25
+
+[2003]
+ParameterName=LED Output State
+ObjectType=7
+DataType=0x0005 ; UNSIGNED8
+AccessType=rw
+DefaultValue=0
+PDOMapping=1 ; <-- PENTING: Menandakan objek ini bisa dipetakan ke PDO
+
+; --- PDO Mapping ---
+; Ini memberitahu library cara mengkonfigurasi PDO secara default
+[1005]
+ParameterName=COB-ID SYNC Message
+ObjectType=7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x80
+
+[1400]
+ParameterName=RPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=2
+[1400sub1]
+ParameterName=COB-ID
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x201 ; Default COB-ID untuk RPDO1 dari Node ID 1
+[1400sub2]
+ParameterName=Transmission Type
+DataType=0x0005
+AccessType=rw
+DefaultValue=255 ; Event-driven
+
+[1600]
+ParameterName=RPDO 1 Mapping Parameter
+ObjectType=9
+SubNumber=1
+[1600sub0]
+ParameterName=Number of mapped objects
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+[1600sub1]
+ParameterName=Object 1
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x20030008 ; Map objek 0x2003, semua 8 bit
+
+[1800]
+ParameterName=TPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=2
+[1800sub1]
+ParameterName=COB-ID
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x181 ; Default COB-ID untuk TPDO1 dari Node ID 1
+[1800sub2]
+ParameterName=Transmission Type
+DataType=0x0005
+AccessType=rw
+DefaultValue=255 ; Event-driven
+
+[1A00]
+ParameterName=TPDO 1 Mapping Parameter
+ObjectType=9
+SubNumber=1
+[1A00sub0]
+ParameterName=Number of mapped objects
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+[1A00sub1]
+ParameterName=Object 1
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x20030008 ; Map objek 0x2003, semua 8 bit

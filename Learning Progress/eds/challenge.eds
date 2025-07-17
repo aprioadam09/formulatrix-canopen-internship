@@ -1,0 +1,94 @@
+[DeviceInfo]
+VendorName=Formulatrix
+VendorNumber=1
+ProductName=DummyDevice
+ProductNumber=0
+RevisionNumber=1
+
+[File]
+Description=Dummy EDS file for PDO challenge 
+CreationDate=2025-07-07
+CreatedBy=Adam
+ModifiedDate=2025-07-07
+
+; ---Object for Master -> Slave ---
+[3000]
+ParameterName=Master Counter
+ObjectType=7
+DataType=0x0007
+AccessType=rw
+DefaultValue=0
+PDOMapping=1
+
+; ---Object for Slave -> Master ---
+[3001]
+ParameterName=Slave Button Press
+ObjectType=7
+DataType=0x0002
+AccessType=rw
+DefaultValue=0
+PDOMapping=1
+
+; Define the PDOs for Master and Slave
+; RPDO1 (For accepting commands from Master Counter)
+
+[1400]
+ParameterName=RPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=2
+[1400sub1]
+ParameterName=COB-ID
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x182 ; Master will send in this COB-ID
+[1400sub2]
+ParameterName=Transmission Type
+DataType=0x0005
+AccessType=rw
+DefaultValue=255 ; Event-driven
+
+[1600]
+ParameterName=RPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=1
+[1600sub0]
+ParameterName=Number of mapped objects
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+[1600sub1]
+ParameterName=Mapping
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x30000020 ; Map Object 3000, 32 Bit
+
+; TPDO1 (For sending Slave Button Pass to Master)
+[1800]
+ParameterName=TPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=2
+[1800sub1]
+ParameterName=COB-ID
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x282 ; Slave will send in this COB-ID
+[1800sub2]
+ParameterName=Transmission Type
+DataType=0x0005
+AccessType=rw
+DefaultValue=255 ; Event-driven
+
+[1A00]
+ParameterName=TPDO 1 Communication Parameter
+ObjectType=9
+SubNumber=1
+[1A00sub0]
+ParameterName=Number of mapped objects
+DataType=0x0005
+AccessType=rw
+DefaultValue=1
+[1A00sub1]
+ParameterName=Mapping
+DataType=0x0007
+AccessType=rw
+DefaultValue=0x30001008 ; Map Object 3001, 8 Bit (Boolean)

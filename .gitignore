@@ -1,8 +1,14 @@
 # Hasil kompilasi C++
 *.o
-slave*
 *.exe
 build/
+
+# Abaikan file executable spesifik di root, JIKA ada
+# Jika kamu mengompilasi dengan nama "slave", "slave_led", dll.
+slave
+slave_led
+slave_pdo
+slave_led-button
 
 # File-file Python cache
 __pycache__/

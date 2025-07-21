@@ -40,19 +40,17 @@ g++ -std=c++14 -Wall -Wextra -pedantic -g -O2     $(pkg-config --cflags liblely-
 ```bash
     sudo ip link set can0 up type can bitrate 500000
     sudo ip link set can1 up type can bitrate 500000
-    ```
+```
 3.  **Run Slave (Terminal 1):**
 ```bash
     # sudo may be required if udev rules are not yet perfect
     sudo ./slave_pdo
-    ```
+```
 4.  **Run Master (Terminal 2):**
     ```bash
     # Ensure the virtual environment is active if used
     python master_pdo.py
     ```
-
----
 
 ## Learning Progress (Sandbox)
 

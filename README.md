@@ -47,10 +47,10 @@ g++ -std=c++14 -Wall -Wextra -pedantic -g -O2     $(pkg-config --cflags liblely-
     sudo ./slave_pdo
 ```
 4.  **Run Master (Terminal 2):**
-    ```bash
+```bash
     # Ensure the virtual environment is active if used
     python master_pdo.py
-    ```
+```
 
 ## Learning Progress (Sandbox)
 
